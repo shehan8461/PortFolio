@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio – W.P. Shehan Salitha Dilshan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════ NAVIGATION ═══════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-initials">WSD</span>
+                <span class="brand-name">Shehan Salitha</span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#introduction" class="nav-link">Introduction</a></li>
+                <li><a href="#journal"      class="nav-link">Reflective Journal</a></li>
+                <li><a href="#career"       class="nav-link">Career Plan</a></li>
+                <li><a href="#cv"           class="nav-link">Curriculum Vitae</a></li>
+                <li><a href="#certificate"  class="nav-link">Certificate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════ COVER / HERO ═══════════════════════════════════════ -->
+    <header class="cover-section">
+        <div class="cover-content">
+            <div class="cover-photo-wrapper">
+                <img
+                    src="images/IMG_8525.png"
+                    alt="W.P. Shehan Salitha Dilshan"
+                    class="cover-photo"
+                    onerror="this.style.display='none';document.getElementById('coverFallback').style.display='flex';"
+                />
+                <div class="cover-photo-fallback" id="coverFallback">WSD</div>
+            </div>
+            <span class="cover-badge">Portfolio</span>
+            <h1 class="cover-name">W.P. Shehan Salitha Dilshan</h1>
+            <p class="cover-title">Software Engineering Undergraduate &amp; Software Developer</p>
+            <p class="cover-org">Sri Lanka Institute of Information Technology (SLIIT)</p>
+            <div class="cover-divider"></div>
+            <p class="cover-course">Preparation for Professional World (PPW)</p>
+            <a href="#introduction" class="cover-cta">View Portfolio</a>
+        </div>
+        <div class="scroll-arrow-wrap"><div class="scroll-arrow"></div></div>
+    </header>
+
+    <!-- ═══════════════════════════════════════ TABLE OF CONTENTS ═══════════════════════════════════════ -->
+    <section class="toc-section">
+        <div class="container">
+            <h2 class="toc-heading">Table of Contents</h2>
+            <div class="toc-grid">
+                <a href="#introduction" class="toc-item">
+                    <span class="toc-num">01</span>
+                    <div class="toc-text">
+                        <span class="toc-label">Introduction</span>
+                        <span class="toc-sub">About Me &amp; Background</span>
+                    </div>
+                </a>
+                <a href="#journal" class="toc-item">
+                    <span class="toc-num">02</span>
+                    <div class="toc-text">
+                        <span class="toc-label">Reflective Journal</span>
+                        <span class="toc-sub">PPW Learning Experience</span>
+                    </div>
+                </a>
+                <a href="#career" class="toc-item">
+                    <span class="toc-num">03</span>
+                    <div class="toc-text">
+                        <span class="toc-label">Career Development Plan</span>
+                        <span class="toc-sub">Goals &amp; Roadmap</span>
+                    </div>
+                </a>
+                <a href="#cv" class="toc-item">
+                    <span class="toc-num">04</span>
+                    <div class="toc-text">
+                        <span class="toc-label">Curriculum Vitae</span>
+                        <span class="toc-sub">Professional Resume</span>
+                    </div>
+                </a>
+                <a href="#certificate" class="toc-item">
+                    <span class="toc-num">05</span>
+                    <div class="toc-text">
+                        <span class="toc-label">Certificate</span>
+                        <span class="toc-sub">Evidence of Skill Development</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ SECTION 01 – INTRODUCTION ═══════════════════════════════════════ -->
+    <section id="introduction" class="page-section">
+        <div class="container">
+            <div class="section-watermark">01</div>
+            <div class="section-header">
+                <h2>Introduction</h2>
+                <p class="section-sub">About Me</p>
+            </div>
+
+            <div class="intro-layout">
+                <!-- Photo column -->
+                <div class="intro-photo-col">
+                    <div class="intro-photo-frame">
+                        <img
+                            src="images/IMG_8525.png"
+                            alt="W.P. Shehan Salitha Dilshan"
+                            class="intro-photo"
+                            onerror="this.style.display='none';document.getElementById('introFallback').style.display='flex';"
+                        />
+                        <div class="intro-photo-fallback" id="introFallback">WSD</div>
+                    </div>
+                    <div class="intro-tags">
+                        <span class="tag">.NET Core</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Text column -->
+                <div class="intro-text-col">
+                    <h3 class="intro-name">W.P. Shehan Salitha Dilshan</h3>
+                    <p class="intro-role">Software Developer &nbsp;·&nbsp; SLIIT Final Year Undergraduate</p>
+                    <div class="gold-rule"></div>
+
+                    <p>I am a passionate and dedicated Software Engineering undergraduate at the <strong>Sri Lanka Institute of Information Technology (SLIIT)</strong>, currently in my final year. Alongside my academic journey, I am working as a Software Developer at <strong>Sun System Technologies &amp; Developers (Pvt) Ltd</strong>, where I actively contribute to real-world enterprise applications.</p>
+
+                    <p>I have strong experience in full-stack development, working with technologies such as .NET Core, Angular, React, Node.js, and SQL-based databases. My work primarily focuses on building scalable systems, API development, and integrating complex business logic into user-friendly applications.</p>
+
+                    <p>During my professional experience, I have contributed to systems like <strong>ERP solutions</strong> and <strong>Water Billing Management Systems</strong>, where I handled backend development, frontend enhancements, and mobile integration. I am also experienced in mobile app development using Kotlin and modern UI design practices.</p>
+
+                    <p>I am highly interested in building efficient, user-centered, and scalable software solutions, and I continuously strive to improve my skills in modern technologies and system design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ SECTION 02 – REFLECTIVE JOURNAL ═══════════════════════════════════════ -->
+    <section id="journal" class="page-section alt-bg">
+        <div class="container">
+            <div class="section-watermark">02</div>
+            <div class="section-header">
+                <h2>Reflective Journal</h2>
+                <p class="section-sub">Preparation for Professional World (PPW)</p>
+            </div>
+
+            <div class="journal-intro-box">
+                <p>Throughout this course, I have gained a comprehensive understanding of the essential communication skills required to succeed in a professional environment. Each lecture built upon the previous one, and together they have transformed the way I approach written and spoken communication in business contexts. This reflective journal summarizes what I have learned and how I intend to apply these skills in my future career.</p>
+            </div>
+
+            <div class="journal-entries">
+
+                <!-- Entry 1 -->
+                <div class="journal-entry">
+                    <div class="j-icon">✍️</div>
+                    <div class="j-body">
+                        <h3>Business Writing: Clarity and Professionalism</h3>
+                        <p>The Business Writing lecture taught me that professional communication must be clear, concise, and action-oriented. I learned six key principles: include a call to action, use polite language, be concise, avoid slang and contractions, handle abbreviations properly (full term first, then the acronym), and always revise and proofread.</p>
+                        <p>I particularly appreciated the examples of wordy versus concise sentences – for instance, changing <em>"In the event of an emergency, please exit the building as soon as you possibly can"</em> to <em>"In case of emergency, exit immediately."</em> This showed me how eliminating unnecessary words makes writing more powerful. I now understand that vague qualifiers like "a bit" or "a lot" should be replaced with precise words like "slightly" or "numerous," and that the verb "get" is too informal for business writing; I should use "obtain," "receive," or "find" instead. These principles will help me write professional emails, memos, and reports without sounding amateurish or wordy.</p>
+                    </div>
+                </div>
+
+                <!-- Entry 2 -->
+                <div class="journal-entry">
+                    <div class="j-icon">📧</div>
+                    <div class="j-body">
+                        <h3>Formal Email Writing: Structure and Tone</h3>
+                        <p>The Formal Email Writing lecture gave me a clear template for composing professional emails. I learned that every email should have a specific subject line, a proper salutation (using the recipient's surname and title, or "Dear Sir/Madam" if unknown), a clear opening stating my purpose, a concise body, a closing line that requests action or expresses thanks, and a professional signature.</p>
+                        <p>I memorised useful phrases for different situations – for example, <em>"I am writing with reference to…"</em> to open, <em>"I regret to inform you that…"</em> to give bad news, and <em>"A prompt response would be highly appreciated"</em> to request action. I also learned the importance of replying promptly with "Noted with thanks" and including the original message when adding new recipients. Before this lecture, I often wrote emails without a clear subject line or a proper closing. Now I realise that a well-structured email projects professionalism and respect for the recipient's time.</p>
+                    </div>
+                </div>
+
+                <!-- Entry 3 -->
+                <div class="journal-entry">
+                    <div class="j-icon">📞</div>
+                    <div class="j-body">
+                        <h3>Telephone Etiquette: Voice and Listening Skills</h3>
+                        <p>The Telephone Etiquette lecture was eye-opening because I had never considered how much my tone and listening habits affect business calls. I learned that every call has three elements: introduction, purpose, and conclusion. Essential skills include preparing notes before calling, identifying myself immediately, eliminating distractions, and using greetings that thank the caller and identify my company.</p>
+                        <p>The most surprising lesson was that smiling truly transfers into my tone of voice – I tried it, and it works. I also learned to avoid a monotone and to vary my pitch. Active listening techniques, such as saying "I see" or "Okay" and taking notes, help me avoid roadblocks like emotional filters and mental side-trips. I now know that being assertive (confident and solution-oriented) is far more effective than being passive or aggressive. I will apply these skills in future internship interviews and client calls.</p>
+                    </div>
+                </div>
+
+                <!-- Entry 4 -->
+                <div class="journal-entry">
+                    <div class="j-icon">📋</div>
+                    <div class="j-body">
+                        <h3>Report Writing: Structure and Objectivity</h3>
+                        <p>The Report Writing lecture taught me how to organise information logically and professionally. I learned the difference between information reports, research reports, and proposal reports. The standard structure – title page, executive summary (written last, max 5% of the report), table of contents, glossary, introduction, methodology, findings, discussion, conclusion, recommendations (SMART), references, and appendices – gave me a clear framework.</p>
+                        <p>I now understand that the methodology section describes how data was collected, findings are pure facts, and discussion interprets those facts. The executive summary must only contain information from the report and is written after the report is complete. I also learned that reports must be objective, not subjective, and that subsidiary parts like the glossary and appendices support the main content. This knowledge will help me write academic and business reports with confidence and credibility.</p>
+                    </div>
+                </div>
+
+                <!-- Entry 5 -->
+                <div class="journal-entry">
+                    <div class="j-icon">🎤</div>
+                    <div class="j-body">
+                        <h3>Presentation Skills: Engaging the Audience</h3>
+                        <p>The Presentation Skills lecture transformed my approach to public speaking. I learned the 10%/80%/10% structure: a brief beginning to capture interest, a substantial middle (80% of the time) with signposting phrases like "Moving on…" and "To conclude…", and a strong ending. The 6×7 rule for slides – maximum six lines per slide and seven words per line – ensures that slides are readable and not overwhelming.</p>
+                        <p>I now use sans-serif fonts (Arial, Calibri) in size 30–44, light backgrounds with dark fonts, and cool colours like blue and green. I avoid fancy animations, distracting GIFs, and paragraphs on slides. Delivery techniques – eye contact, voice variety, facial expressions, good posture, and professional appearance – are just as important as the content. I also learned to use cue cards instead of reading a script, to rehearse in the actual location, and to handle group presentations with smooth transitions. I will use these skills in my upcoming academic presentations and future job interviews.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Conclusion -->
+            <div class="journal-conclusion">
+                <h3>Conclusion</h3>
+                <p>Overall, the PPW course has equipped me with practical, actionable communication skills that I can immediately apply in academic, professional, and personal contexts. From writing concise emails and reports to delivering confident presentations and handling telephone calls with poise, I feel much better prepared for the professional world. This reflective journal will serve as a reminder of the key principles I have learned, and I intend to keep it in my portfolio as evidence of my growth and readiness for my career.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ SECTION 03 – CAREER DEVELOPMENT PLAN ═══════════════════════════════════════ -->
+    <section id="career" class="page-section">
+        <div class="container">
+            <div class="section-watermark">03</div>
+            <div class="section-header">
+                <h2>Career Development Plan</h2>
+                <p class="section-sub">My Roadmap to Success in Software Engineering</p>
+            </div>
+
+            <div class="career-vision-box">
+                <p>My career goal is to grow into a highly skilled full-stack software engineer with expertise in designing and developing enterprise-level applications. I am committed to continuous learning, professional growth, and making meaningful contributions to the technology industry.</p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+
+                <div class="tl-item">
+                    <div class="tl-dot green"></div>
+                    <div class="tl-card">
+                        <span class="tl-period green-period">Short-Term Goals</span>
+                        <h3>🎯 Foundation &amp; Skill Enhancement</h3>
+                        <ul>
+                            <li>Strengthen expertise in .NET Core, Angular, and React</li>
+                            <li>Gain deeper knowledge in system architecture and API design</li>
+                            <li>Improve skills in database optimization and performance tuning</li>
+                            <li>Enhance experience in mobile development (Kotlin / Android)</li>
+                            <li>Contribute to more real-world projects and production systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tl-item">
+                    <div class="tl-dot blue"></div>
+                    <div class="tl-card">
+                        <span class="tl-period blue-period">Mid-Term Goals</span>
+                        <h3>🚀 Professional Growth &amp; Leadership</h3>
+                        <ul>
+                            <li>Advance into a Senior Software Engineer role</li>
+                            <li>Gain strong experience in microservices architecture and cloud platforms (Azure / Docker)</li>
+                            <li>Improve knowledge in DevOps practices and CI/CD pipelines</li>
+                            <li>Lead small teams or modules within enterprise projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tl-item">
+                    <div class="tl-dot purple"></div>
+                    <div class="tl-card">
+                        <span class="tl-period purple-period">Long-Term Goals</span>
+                        <h3>🌟 Leadership &amp; Innovation</h3>
+                        <ul>
+                            <li>Become a Software Architect or Technical Lead</li>
+                            <li>Design and manage large-scale enterprise systems</li>
+                            <li>Build my own software products or startup</li>
+                            <li>Establish a strong professional presence in the tech industry through freelancing and innovation</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Core Strengths -->
+            <div class="strengths-block">
+                <h3 class="strengths-title">Core Strengths</h3>
+                <div class="strengths-grid">
+                    <div class="strength-card">
+                        <div class="s-icon">🔍</div>
+                        <p>Problem-Solving &amp; Analytical Thinking</p>
+                    </div>
+                    <div class="strength-card">
+                        <div class="s-icon">💻</div>
+                        <p>Real-World System Development Experience</p>
+                    </div>
+                    <div class="strength-card">
+                        <div class="s-icon">⚙️</div>
+                        <p>Strong Backend &amp; API Development Skills</p>
+                    </div>
+                    <div class="strength-card">
+                        <div class="s-icon">🎨</div>
+                        <p>UI/UX-Focused Frontend Development</p>
+                    </div>
+                    <div class="strength-card">
+                        <div class="s-icon">📚</div>
+                        <p>Quick Learner &amp; Adaptable to New Technologies</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ SECTION 04 – CURRICULUM VITAE ═══════════════════════════════════════ -->
+    <section id="cv" class="page-section alt-bg">
+        <div class="container">
+            <div class="section-watermark">04</div>
+            <div class="section-header">
+                <h2>Curriculum Vitae</h2>
+                <p class="section-sub">My Professional Resume</p>
+            </div>
+
+            <div class="pdf-wrapper">
+                <iframe
+                    src="cv/ShehanCv.pdf"
+                    class="pdf-frame"
+                    title="Curriculum Vitae – W.P. Shehan Salitha Dilshan"
+                ></iframe>
+            </div>
+            <div class="pdf-actions">
+                <a href="cv/ShehanCv.pdf" download="ShehanSalitha_CV.pdf" class="btn-gold">&#8595; Download CV</a>
+                <a href="cv/ShehanCv.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">&#8599; Open in New Tab</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ SECTION 05 – CERTIFICATE ═══════════════════════════════════════ -->
+    <section id="certificate" class="page-section">
+        <div class="container">
+            <div class="section-watermark">05</div>
+            <div class="section-header">
+                <h2>Certificate</h2>
+                <p class="section-sub">Evidence of Continuous Learning &amp; Skill Development</p>
+            </div>
+
+            <div class="cert-highlight-box">
+                <div class="cert-trophy">🏆</div>
+                <div class="cert-info">
+                    <h3>Web Design for Beginners</h3>
+                    <p class="cert-course-tag">Web Development Course &nbsp;—&nbsp; Online Platform</p>
+                    <p>This e-certificate was obtained upon successful completion of the <strong>Web Design for Beginners</strong> course, which covered the fundamentals of web design, HTML, CSS, and modern design principles. Completing this course demonstrates my commitment to continuous learning and staying current with industry-relevant skills beyond my academic curriculum.</p>
+                </div>
+            </div>
+
+            <div class="pdf-wrapper">
+                <iframe
+                    src="certificates/Web%20Development%20-%201.%20Web%20Design%20for%20Beginners_Web%20Design%20for%20Beginners%20E-Certificate.pdf"
+                    class="pdf-frame cert-frame"
+                    title="Web Design for Beginners – E-Certificate"
+                ></iframe>
+            </div>
+            <div class="pdf-actions">
+                <a href="certificates/Web%20Development%20-%201.%20Web%20Design%20for%20Beginners_Web%20Design%20for%20Beginners%20E-Certificate.pdf"
+                   download="WebDesign_Certificate.pdf" class="btn-gold">&#8595; Download Certificate</a>
+                <a href="certificates/Web%20Development%20-%201.%20Web%20Design%20for%20Beginners_Web%20Design%20for%20Beginners%20E-Certificate.pdf"
+                   target="_blank" rel="noopener noreferrer" class="btn-outline">&#8599; Open in New Tab</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-name">W.P. Shehan Salitha Dilshan</div>
+            <div class="footer-sub">Software Engineering Undergraduate &nbsp;&middot;&nbsp; SLIIT &nbsp;&middot;&nbsp; 2025</div>
+            <div class="footer-course">Preparation for Professional World (PPW) — Portfolio Submission</div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════ SCRIPTS ═══════════════════════════════════════ -->
+    <script>
+        /* Navbar shrink on scroll */
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        /* Mobile nav toggle */
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        /* Smooth scroll */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('navLinks').classList.remove('open');
+                }
+            });
+        });
+
+        /* Active nav link on scroll */
+        const sections  = document.querySelectorAll('section[id]');
+        const navLinks  = document.querySelectorAll('.nav-link');
+        const onScroll  = () => {
+            let active = '';
+            sections.forEach(sec => {
+                if (sec.getBoundingClientRect().top <= 120) active = sec.id;
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${active}`);
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+    </script>
+</body>
+</html>
