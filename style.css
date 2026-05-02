@@ -540,6 +540,73 @@ a           { color: inherit; }
 }
 .btn-outline:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
 
+/* Certificate block wrapper (separates each certificate) */
+.cert-block {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+}
+.cert-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Image-based certificate display — matches .pdf-wrapper appearance */
+.cert-img-wrapper {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    margin-bottom: 1.4rem;
+    height: 620px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Toolbar bar mimicking Chrome's PDF viewer header */
+.cert-img-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #3c4043;
+    padding: .6rem 1.1rem;
+    flex-shrink: 0;
+    gap: 1rem;
+}
+.cert-img-toolbar-title {
+    color: #e8eaed;
+    font-size: .82rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cert-img-toolbar-meta {
+    color: #9aa0a6;
+    font-size: .78rem;
+    flex-shrink: 0;
+}
+
+/* Scrollable image body below toolbar */
+.cert-img-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #525659;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: .8rem;
+}
+.cert-img {
+    width: 100%;
+    max-width: 860px;
+    display: block;
+    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+
 /* Certificate highlight */
 .cert-highlight-box {
     display: flex; gap: 1.6rem; align-items: flex-start;
@@ -562,6 +629,39 @@ a           { color: inherit; }
 .cert-info p:last-child {
     font-size: .92rem; color: var(--text-md); line-height: 1.75; margin: 0;
 }
+
+/* ── PDF page images (print only) ────────────────────────── */
+.pdf-image-gallery {
+    display: none; /* hidden in browser, shown in print via @media print */
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.4rem;
+}
+.pdf-page-img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    display: block;
+}
+
+/* ── PDF print placeholder (visible in print only) ────────────────── */
+.pdf-print-placeholder {
+    display: none;
+    align-items: center; gap: 1.5rem;
+    border: 2px dashed #b0b8cc;
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    margin-bottom: 1.4rem;
+    background: #f8f9fc;
+}
+.ppp-icon { font-size: 3rem; line-height: 1; flex-shrink: 0; }
+.ppp-text {
+    display: flex; flex-direction: column; gap: .35rem;
+}
+.ppp-text strong { font-size: 1.05rem; color: #0d1b2a; }
+.ppp-text span   { font-size: .88rem;  color: #4a5568; }
+.ppp-file        { font-size: .78rem !important; color: #718096 !important; font-style: italic; }
 
 /* ── Footer ───────────────────────────────────────────────── */
 .site-footer {
@@ -626,16 +726,192 @@ a           { color: inherit; }
     .strengths-grid   { grid-template-columns: 1fr 1fr; }
 }
 
+/* ── Floating PDF Download Button ────────────────────────── */
+.pdf-fab {
+    position: fixed;
+    bottom: 2.2rem;
+    right: 2.2rem;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    background: var(--navy);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 100px;
+    padding: .75rem 1.5rem .75rem 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 28px rgba(13,27,42,.32), 0 0 0 0 rgba(201,162,39,.4);
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+    transition: opacity .35s ease, transform .35s ease, box-shadow .25s ease, background .25s ease;
+}
+.pdf-fab svg {
+    width: 18px; height: 18px; flex-shrink: 0;
+    stroke: var(--gold);
+    transition: stroke .25s ease;
+}
+.pdf-fab.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.pdf-fab:hover {
+    background: var(--gold);
+    color: var(--navy);
+    box-shadow: 0 10px 36px rgba(201,162,39,.48), 0 0 0 6px rgba(201,162,39,.12);
+}
+.pdf-fab:hover svg { stroke: var(--navy); }
+.pdf-fab:active { transform: translateY(1px); }
+
 /* ── Print Styles ─────────────────────────────────────────── */
+
+/* Remove browser-added URL / date / page number headers & footers */
+@page { margin: 14mm 14mm 14mm 14mm; size: A4; }
+
 @media print {
-    .navbar, .scroll-arrow-wrap, .cover-cta, .pdf-actions { display: none !important; }
+    /* Force ALL background colours, gradients & images to print */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust:         exact !important;
+    }
 
-    body { background: #fff; color: #000; }
+    body { padding: 0; box-sizing: border-box; }
 
-    .cover-section    { min-height: auto; padding: 4rem 2rem; page-break-after: always; }
-    .toc-section      { page-break-after: always; background: #0d1b2a; }
-    .page-section     { padding: 2.5rem 0; page-break-inside: avoid; }
-    .journal-entry    { page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
-    .tl-card          { page-break-inside: avoid; }
-    .pdf-frame        { height: 1050px; }
+    .navbar, .scroll-arrow-wrap, .cover-cta, .pdf-actions, .pdf-fab { display: none !important; }
+
+    /* ── Cover: full dark navy/gold theme ── */
+    .cover-section {
+        min-height: auto;
+        padding: 3rem 2rem;
+        page-break-after: always;
+        page-break-inside: avoid;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #0d1b2a 0%, #1b3a5c 45%, #0d1b2a 100%) !important;
+    }
+    .cover-name    { color: #fff !important; }
+    .cover-title   { color: #e8c04a !important; }
+    .cover-org     { color: rgba(255,255,255,.55) !important; }
+    .cover-course  { color: rgba(255,255,255,.45) !important; }
+    .cover-badge   { background: #c9a227 !important; color: #0d1b2a !important; }
+    .cover-divider { background: #c9a227 !important; }
+    .cover-photo-wrapper { border-color: #c9a227 !important; }
+
+    /* ── TOC: dark navy, single page ── */
+    .toc-section {
+        page-break-after: always;
+        page-break-inside: avoid;
+        background: #0d1b2a !important;
+        padding: 2rem 0;
+    }
+    .toc-heading { color: #fff !important; }
+    .toc-num     { color: #c9a227 !important; }
+    .toc-label   { color: #fff !important; }
+    .toc-sub     { color: rgba(255,255,255,.5) !important; }
+    .toc-item    {
+        background: rgba(255,255,255,.06) !important;
+        border-color: rgba(255,255,255,.1) !important;
+    }
+    /* 3-column TOC grid in print */
+    .toc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* ── Content sections ── */
+    .page-section  { padding: 1.8rem 0; }
+    .alt-bg        { background: #f3f6fa !important; }
+
+    /* Section starts */
+    #introduction { page-break-before: always; }
+    #journal      { page-break-before: always; }
+    #career       { page-break-before: always; }
+    #cv           { page-break-before: always; }
+    #certificate  { page-break-before: always; }
+
+    /* ── Introduction: 2-column → side-by-side in print ── */
+    .intro-layout {
+        display: grid !important;
+        grid-template-columns: 220px 1fr !important;
+        gap: 2rem !important;
+        page-break-inside: avoid;
+    }
+    .intro-photo-frame {
+        width: 220px !important;
+        aspect-ratio: 4/5 !important;
+        border-radius: 10px !important;
+        border: 3px solid #c9a227 !important;
+    }
+    .intro-photo {
+        width: 100% !important; height: 100% !important;
+        object-fit: cover !important;
+    }
+    .tag {
+        background: #0d1b2a !important;
+        color: #fff !important;
+    }
+
+    /* ── Journal ── */
+    .journal-intro-box { page-break-inside: avoid; border-left: 4px solid #c9a227 !important; }
+    .journal-entry     { page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; border-left: 4px solid #c9a227 !important; }
+    .journal-conclusion {
+        page-break-inside: avoid;
+        background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 100%) !important;
+        color: #fff !important;
+    }
+    .journal-conclusion h3 { color: #e8c04a !important; }
+    .journal-conclusion p  { color: rgba(255,255,255,.85) !important; }
+
+    /* ── Career Plan ── */
+    .career-vision-box { page-break-inside: avoid; }
+    .tl-item           { page-break-inside: avoid; }
+    .tl-card           { page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    /* 3-column strengths grid in print */
+    .strengths-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    .strengths-block   { page-break-inside: avoid; }
+    .strength-card     { background: #f3f6fa !important; border: 1px solid #d9e0ed !important; }
+
+    /* Timeline colour dots */
+    .tl-dot.green  { background: #22c55e !important; }
+    .tl-dot.blue   { background: #3b82f6 !important; }
+    .tl-dot.purple { background: #a855f7 !important; }
+    .green-period  { background: rgba(34,197,94,.1) !important;  color: #16a34a !important; }
+    .blue-period   { background: rgba(59,130,246,.1) !important; color: #1d4ed8 !important; }
+    .purple-period { background: rgba(168,85,247,.1) !important; color: #7e22ce !important; }
+
+    /* ── CV & Certificate display ── */
+    .pdf-wrapper           { display: none !important; }
+    .pdf-print-placeholder { display: none !important; }
+    .pdf-image-gallery     { display: flex !important; }
+    .pdf-page-img          { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; width: 100%; }
+
+    /* Image cert boxes: strip toolbar/bg, show full image */
+    .cert-highlight-box { page-break-inside: avoid; border-left: 4px solid #c9a227 !important; }
+    .cert-block         { page-break-inside: avoid; border-bottom: 1px solid #ddd !important; }
+    .cert-img-toolbar   { display: none !important; }
+    .cert-img-body      { padding: 0 !important; background: none !important; height: auto !important; overflow: visible !important; }
+    .cert-img-wrapper   { height: auto !important; overflow: visible !important; box-shadow: none !important; display: block !important; }
+    .cert-img           { box-shadow: none !important; width: 100% !important; }
+
+    /* ── Section headers ── */
+    .section-header h2::after { background: #c9a227 !important; }
+    .section-watermark        { display: none; }
+
+    /* ── Footer ── */
+    .site-footer {
+        page-break-before: auto;
+        background: #0d1b2a !important;
+        color: #fff !important;
+    }
+    .footer-name   { color: #fff !important; }
+    .footer-sub    { color: rgba(255,255,255,.55) !important; }
+    .footer-course { color: #c9a227 !important; }
 }
