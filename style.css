@@ -631,8 +631,10 @@ a           { color: inherit; }
 }
 
 /* ── PDF page images (print only) ────────────────────────── */
+.print-only {
+    display: none !important; /* always hidden in browser */
+}
 .pdf-image-gallery {
-    display: none; /* hidden in browser, shown in print via @media print */
     flex-direction: column;
     gap: 1.2rem;
     margin-bottom: 1.4rem;
@@ -828,6 +830,20 @@ a           { color: inherit; }
     .page-section  { padding: 1.8rem 0; }
     .alt-bg        { background: #f3f6fa !important; }
 
+    /* Never allow a page break between a section heading and its first content block */
+    .section-header {
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    .section-header + *,
+    .section-header ~ .intro-layout,
+    .section-header ~ .journal-intro-box,
+    .section-header ~ .career-vision-box,
+    .section-header ~ .pdf-image-gallery,
+    .section-header ~ .cert-block {
+        page-break-before: avoid !important;
+    }
+
     /* Section starts */
     #introduction { page-break-before: always; }
     #journal      { page-break-before: always; }
@@ -840,7 +856,6 @@ a           { color: inherit; }
         display: grid !important;
         grid-template-columns: 220px 1fr !important;
         gap: 2rem !important;
-        page-break-inside: avoid;
     }
     .intro-photo-frame {
         width: 220px !important;
@@ -888,9 +903,10 @@ a           { color: inherit; }
     .purple-period { background: rgba(168,85,247,.1) !important; color: #7e22ce !important; }
 
     /* ── CV & Certificate display ── */
+    .print-only                    { display: block !important; } /* override the screen hide */
+    .pdf-image-gallery.print-only  { display: flex !important; flex-direction: column; break-before: avoid !important; page-break-before: avoid !important; } /* higher specificity = wins, no break between heading and images */
     .pdf-wrapper           { display: none !important; }
     .pdf-print-placeholder { display: none !important; }
-    .pdf-image-gallery     { display: flex !important; }
     .pdf-page-img          { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; width: 100%; }
 
     /* Image cert boxes: strip toolbar/bg, show full image */
