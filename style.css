@@ -782,9 +782,13 @@ a           { color: inherit; }
         print-color-adjust:         exact !important;
     }
 
-    body { padding: 0; box-sizing: border-box; }
+    html, body {
+        padding: 0;
+        box-sizing: border-box;
+        background: #fff !important;
+    }
 
-    .navbar, .scroll-arrow-wrap, .cover-cta, .pdf-actions, .pdf-fab { display: none !important; }
+    .navbar, .scroll-arrow-wrap, .cover-cta, .pdf-actions, .pdf-fab, .site-footer { display: none !important; }
 
     /* ── Cover: full dark navy/gold theme ── */
     .cover-section {
@@ -849,7 +853,31 @@ a           { color: inherit; }
     #journal      { page-break-before: always; }
     #career       { page-break-before: always; }
     #cv           { page-break-before: always; }
-    #certificate  { page-break-before: always; }
+    #certificate  { page-break-before: auto; }
+
+    /* Keep the CV heading in print, but make it compact so it stays with the CV content */
+    #cv .section-watermark {
+        display: none !important;
+    }
+    #cv .section-header {
+        display: block !important;
+        margin-bottom: .8rem !important;
+    }
+    #cv .section-header h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: .15rem !important;
+    }
+    #cv .section-sub {
+        font-size: .78rem !important;
+        margin-top: .25rem !important;
+    }
+    #cv {
+        padding-top: 0 !important;
+        padding-bottom: 1rem !important;
+    }
+    #cv .container {
+        padding-top: 0 !important;
+    }
 
     /* ── Introduction: 2-column → side-by-side in print ── */
     .intro-layout {
@@ -911,7 +939,11 @@ a           { color: inherit; }
 
     /* Image cert boxes: strip toolbar/bg, show full image */
     .cert-highlight-box { page-break-inside: avoid; border-left: 4px solid #c9a227 !important; }
-    .cert-block         { page-break-inside: avoid; border-bottom: 1px solid #ddd !important; }
+    .cert-block {
+        page-break-inside: auto;
+        break-inside: auto;
+        border-bottom: 1px solid #ddd !important;
+    }
     .cert-img-toolbar   { display: none !important; }
     .cert-img-body      { padding: 0 !important; background: none !important; height: auto !important; overflow: visible !important; }
     .cert-img-wrapper   { height: auto !important; overflow: visible !important; box-shadow: none !important; display: block !important; }
@@ -921,13 +953,4 @@ a           { color: inherit; }
     .section-header h2::after { background: #c9a227 !important; }
     .section-watermark        { display: none; }
 
-    /* ── Footer ── */
-    .site-footer {
-        page-break-before: auto;
-        background: #0d1b2a !important;
-        color: #fff !important;
-    }
-    .footer-name   { color: #fff !important; }
-    .footer-sub    { color: rgba(255,255,255,.55) !important; }
-    .footer-course { color: #c9a227 !important; }
 }
