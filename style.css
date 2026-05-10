@@ -769,11 +769,14 @@ a           { color: inherit; }
 }
 .pdf-fab:hover svg { stroke: var(--navy); }
 .pdf-fab:active { transform: translateY(1px); }
+.cert-page-break { display: none; } /* hidden in browser, only active in print */
 
 /* ── Print Styles ─────────────────────────────────────────── */
 
-/* Remove browser-added URL / date / page number headers & footers */
-@page { margin: 14mm 14mm 14mm 14mm; size: A4; }
+/* Remove browser-added URL / date / page number headers & footers.
+   Setting margin:0 leaves no space for Chrome to render its URL/date text.
+   Content padding is applied on html/body inside @media print instead. */
+@page { margin: 0; size: A4; }
 
 @media print {
     /* Force ALL background colours, gradients & images to print */
@@ -783,7 +786,7 @@ a           { color: inherit; }
     }
 
     html, body {
-        padding: 0;
+        padding: 0 14mm;   /* left/right only — top/bottom set per-section below */
         box-sizing: border-box;
         background: #fff !important;
     }
@@ -793,7 +796,7 @@ a           { color: inherit; }
     /* ── Cover: full dark navy/gold theme ── */
     .cover-section {
         min-height: auto;
-        padding: 3rem 2rem;
+        padding: 14mm 2rem 14mm; /* consistent top & bottom = 14mm per page */
         page-break-after: always;
         page-break-inside: avoid;
         display: flex !important;
@@ -815,7 +818,7 @@ a           { color: inherit; }
         page-break-after: always;
         page-break-inside: avoid;
         background: #0d1b2a !important;
-        padding: 2rem 0;
+        padding: 14mm 0;  /* consistent top & bottom */
     }
     .toc-heading { color: #fff !important; }
     .toc-num     { color: #c9a227 !important; }
@@ -831,7 +834,7 @@ a           { color: inherit; }
     }
 
     /* ── Content sections ── */
-    .page-section  { padding: 1.8rem 0; }
+    .page-section  { padding: 14mm 0; } /* top & bottom 14mm = same gap on every page */
     .alt-bg        { background: #f3f6fa !important; }
 
     /* Never allow a page break between a section heading and its first content block */
@@ -938,15 +941,33 @@ a           { color: inherit; }
     .pdf-page-img          { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; width: 100%; }
 
     /* Image cert boxes: strip toolbar/bg, show full image */
-    .cert-highlight-box { page-break-inside: avoid; border-left: 4px solid #c9a227 !important; }
+    .cert-highlight-box {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        page-break-after: avoid !important;  /* keep description glued to image below */
+        break-after: avoid !important;
+        border-left: 4px solid #c9a227 !important;
+    }
     .cert-block {
         page-break-inside: auto;
         break-inside: auto;
         border-bottom: 1px solid #ddd !important;
     }
+    /* Explicit page-break divs between certificates — most reliable in Chrome */
+    .cert-page-break {
+        page-break-after: always !important;
+        break-after: always !important;
+        height: 0;
+        display: block;
+    }
     .cert-img-toolbar   { display: none !important; }
     .cert-img-body      { padding: 0 !important; background: none !important; height: auto !important; overflow: visible !important; }
-    .cert-img-wrapper   { height: auto !important; overflow: visible !important; box-shadow: none !important; display: block !important; }
+    .cert-img-wrapper   {
+        height: auto !important; overflow: visible !important;
+        box-shadow: none !important; display: block !important;
+        page-break-before: avoid !important; /* stay with the description above */
+        break-before: avoid !important;
+    }
     .cert-img           { box-shadow: none !important; width: 100% !important; }
 
     /* ── Section headers ── */
